@@ -16,6 +16,6 @@ steps:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: "build"
+      PathtoPublish: "build/app/outputs/flutter-apk/app-release.apk"
       ArtifactName: "drop"
       publishLocation: "container"
