@@ -1,0 +1,21 @@
+trigger:
+  - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - script: flutter pub get
+    displayName: "Install dependencies"
+
+  - script: flutter build apk --release
+    displayName: "Build application"
+
+  - script: flutter test
+    displayName: "Run tests"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "build"
+      ArtifactName: "drop"
+      publishLocation: "container"
