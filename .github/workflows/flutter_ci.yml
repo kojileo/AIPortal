@@ -20,20 +20,20 @@ jobs:
         with:
           flutter-version: "2.2.3"
 
-      - name: Change to project directory
-        run: cd frontend
-
       - name: Install dependencies
         run: flutter pub get
+        working-directory: frontend
 
       - name: Run tests
         run: flutter test
+        working-directory: frontend
 
       - name: Build APK
         run: flutter build apk --release
+        working-directory: frontend
 
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
           name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: frontend/build/app/outputs/flutter-apk/app-release.apk
