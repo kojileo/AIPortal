@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/views/screens/email_login_screen.dart'; // EmailLoginScreenのインポート
+import '/views/screens/select_screen.dart'; // SelectScreenのインポート
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('生成AI基盤アプリ'),
+        title: Text('生成AIポータルアプリ'),
       ),
       body: Stack(
         children: [
@@ -37,14 +37,11 @@ class HomeScreen extends StatelessWidget {
   Widget _loginButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return EmailLoginScreen(); // ポップアップとしてEmailLoginScreenを表示
-          },
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => SelectScreen()),
         );
       },
-      child: Text('メールでログイン'), // ボタンのテキスト
+      child: Text('ログイン'),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.pink,
         foregroundColor: Colors.white,
